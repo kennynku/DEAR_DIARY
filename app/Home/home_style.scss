@@ -1,0 +1,81 @@
+.recommended-blogs{
+    margin-top:4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:50px;
+    margin-bottom: 50px;
+
+    .blog-card{
+        //padding-left:20px;
+        //padding-right:20px;
+        box-shadow: -1px 1px 22px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 1px 22px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 1px 22px 0px rgba(0,0,0,0.75);
+        text-align: center;
+        width:300px;
+        border-radius:5px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        height: 350px;
+        padding-bottom: 0;
+
+        .blog-image{
+            width: 100%;
+
+            img{
+                width: 100%;
+                height:180px;
+                object-fit: cover;
+            }
+        }
+        .overview {
+            max-height: 100px; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+
+        .hearts, .number-comments, .views{
+            margin-top: 38px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            text-align: center;
+            font-size: 16px;
+            color:#9a7c7c;
+            padding:2px 26px;
+            padding-top: 3px;
+            background-color: #ddd;
+            border-right: 1px solid white;
+            width: 50px;
+            //border-radius: 5px;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #f5bcbc;
+                transform: scale(1.05);
+            }
+
+        
+            img{
+                width:30px;
+                height: 30px;
+                object-fit: cover;
+            }
+        }
+        .views{
+            padding-right: 27px;
+            border-right: none;
+        }
+        .impressions{
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}

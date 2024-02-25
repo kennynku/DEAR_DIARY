@@ -1,0 +1,56 @@
+.authentication_tab{
+    color: #f3f3f3 !important;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    background-color: #0066b2;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family:sans-serif;
+
+}
+
+.authForms{
+    label{
+        display: block;
+        font-size: 14px;
+        color: white;
+        text-align: left;
+        padding: 20px 0  0;
+    }
+    input{
+        display: block;
+        padding: 15px;
+        font-size: 24px;
+        border: none;
+        outline: none;
+        background: #f3f3f3;
+        color: black;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        width: 70%;
+    }
+    input[type="submit"]{
+        cursor: pointer;
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: all .3s ease;
+        &:hover{
+            opacity: .8;
+            }
+    }
+
+}
+.login_form{
+    border-right: whitesmoke 3px solid;
+}
+
+.register_form{
+    margin-left: 50px;
+}
