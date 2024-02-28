@@ -32,6 +32,10 @@ const BlogSchema = new Schema({
     views:[{
         type: mongoose.Types.ObjectId,
         ref: 'User'
+    }],
+    comments: [{  // Add this 'comments' field
+        type: mongoose.Types.ObjectId,
+        ref: 'Comment'
     }]
 
 }, {timestamps: true });

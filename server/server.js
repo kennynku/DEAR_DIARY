@@ -56,7 +56,7 @@ app.post('/login', async (req, res) => {
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 const accessToken = jwt.sign({email: user.email}, secretKey)
                 res.status(200).json({ accessToken: accessToken, user_id: user._id});
-                console.log('Logged in succesfully')
+                console.log('Logged in succesfully');
             }
             else{
                 res.sendStatus(403);
@@ -141,13 +141,36 @@ app.get('/categories/category', async (req, res) => {
 //Get home blogs
 app.get('/home/blogs', async (req, res) => {
     try {
+        // Fetch the first twelve blogs
         const blogs = await Blog.find().limit(12);
+
+        // Extract the IDs of these blogs
+        const blogIds = blogs.map(blog => blog._id);
+
+        // Fetch comments concurrently
+        const commentsPromise = Comment.find({ blogId: { $in: blogIds } }).populate({
+            path: 'userId',
+            select: 'username', // Adjust to the actual field name in the 'User' model
+        });
+
+        // Wait for both blog and comments promises to resolve
+        const [comments] = await Promise.all([commentsPromise]);
+
+        // Attach comments to the respective blogs
+        blogs.forEach(blog => {
+            const blogComments = comments.filter(comment => comment.blogId.equals(blog._id));
+            blog.comments = blogComments;
+        });
+
         res.status(200).json(blogs);
     } catch (err) {
         console.log(err.message);
-        res.status(500).send('Something went wrong on our end try again later');
+        res.status(500).send('Something went wrong on our end, try again later');
     }
-})
+});
+
+
+
 app.get('/blogs/view', async (req, res) => {
     try{
         const [blog, comments] = await Promise.all([
@@ -189,6 +212,7 @@ app.put("/blog/like", authenticateToken, async (req, res) => {
                 {_id: blogId},
                 {$pull: { likes: userId }},
             )
+            console.log('blog unliked');
             res.status(200).send('Blog unliked');
         } else {
 
@@ -196,6 +220,7 @@ app.put("/blog/like", authenticateToken, async (req, res) => {
                 { _id: blogId },
                 { $push: { likes: userId }}
             );
+            console.log("blog liked");
             res.status(200).send('Blog Liked');
         }
     }catch(err) {
@@ -229,7 +254,7 @@ app.put("/blog/impression", authenticateToken, async (req, res) => {
             res.status(200).send('New view');
         }
     }catch(err) {
-        console.error(err.message);;
+        console.error(err.message);
         res.status(500).send("Something went wrong on our end please try again later");
     }
 })
