@@ -1,9 +1,10 @@
-## BLOGGER'S HUB
-![WhatsApp Image 2023-11-14 at 20 24 43](https://github.com/BraveScorpion/bloggers_hub/assets/123018905/5d9a6094-f3b9-41d6-9e64-5b3df48db333)
+## DEAR_DIARY
+![WhatsApp Image 2024-02-28 at 20 03 29 (1)](https://github.com/kennynku/dear_diary/assets/123018905/f2e2da1d-0fe0-4eee-a45b-a78ddbd9e40e)
+
 
 
 ## Introduction
-Blogger's hub is a blog post page which was inspired by bloggers around the world. My partner and I have observed that people have so much to talk about so why not give them a platform to talk, primarily educate each other on topics of interest with respect and integrity. It is a platform where knowledge is accessible in seconds and anyone is free to engage with anyone on a topic of interest and learn a thing or two. We dont only get educated through school so why not informalize getting educated through a blog and make it actually fun to learn.
+Dear Diary is a blog page which was inspired by how frantic we get due to our interlocking schedules in our daily lives. It is designed to help us not let anything fall in between the cracks by being able to create daily entries where we can easily schedule our time for each day or even schedule diaries for the future. Or better yet, create diaries to just pour our innermost thoughts which we do not wish to share with other people.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
